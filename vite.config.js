@@ -1,13 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-import { defineConfig } from 'vite'
-
-
 export default defineConfig({
+  plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['/src/main.jsx']
+      input: '/src/main.jsx', // Specify the entry point
+    }
+  },
+  resolve: {
+    alias: {
+      '/src': '/src' // This helps ensure proper resolution of /src paths
     }
   }
 })
